@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Строка нужна для подключения русского языка -->
+    <meta charset="utf-8" />
+    <title>🎱Страничка!</title>
+</head>
+<body id="body">
+    Ответ: <input></input>
+    <script>
+        window.onload = () =>
+        {
+            alert("Привет")
+            var randomResponse = await fetch("/randomAnswer");
+            var randomAns = await randomResponse.text();
+            var ans = document.getElementById();
+        };
+    </script>
+</body>
+</html>
