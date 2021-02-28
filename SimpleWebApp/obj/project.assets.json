@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\repos\\SimpleWebApp1\\SimpleWebApp\\SimpleWebApp.csproj",
+      "projectUniqueName": "C:\\repos\\SimpleWebApp\\SimpleWebApp\\SimpleWebApp.csproj",
       "projectName": "SimpleWebApp",
-      "projectPath": "c:\\repos\\SimpleWebApp1\\SimpleWebApp\\SimpleWebApp.csproj",
+      "projectPath": "C:\\repos\\SimpleWebApp\\SimpleWebApp\\SimpleWebApp.csproj",
       "packagesPath": "C:\\Users\\Anton\\.nuget\\packages\\",
-      "outputPath": "c:\\repos\\SimpleWebApp1\\SimpleWebApp\\obj\\",
+      "outputPath": "C:\\repos\\SimpleWebApp\\SimpleWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

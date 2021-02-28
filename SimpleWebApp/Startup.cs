@@ -85,8 +85,10 @@ namespace SimpleWebApp
                 {
                     // * будут проблемы
                     PredictionsManager pm = new PredictionsManager();
-                    //var quary = context.Request.Query;
-                    pm.AddPrediction("Новая строка");
+                    string quary = context.Request.Query["newPrediction1"];
+                    string quary2 = context.Request.Query["newPrediction2"];
+                    string quary3 = context.Request.Query["newPrediction3"];
+                    pm.AddPrediction(quary);
                 });
             });
         }

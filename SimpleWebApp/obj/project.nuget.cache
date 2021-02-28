@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E6c5ixjvAAOLQQuzW/DvCd9G/gZsetuKWZgyIEJb/TT5ZHou1kTqDPRwHL/kr3sy2FEJCUZ4QnnkkHrSoRJrDg==",
+  "dgSpecHash": "4ko6DKRfpyj6T8bBL92rEa1Sj7FPrIAGDBPxBTd3+VSQ2SkJu4vDlES8sLeXnx5bOzH72XTlnSEJIMkZ1ccZDw==",
   "success": true,
-  "projectFilePath": "c:\\repos\\SimpleWebApp1\\SimpleWebApp\\SimpleWebApp.csproj",
+  "projectFilePath": "c:\\repos\\SimpleWebApp\\SimpleWebApp\\SimpleWebApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
