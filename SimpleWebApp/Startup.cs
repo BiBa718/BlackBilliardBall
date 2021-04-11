@@ -17,6 +17,7 @@ namespace SimpleWebApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<PredictionsManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,19 +77,17 @@ namespace SimpleWebApp
                 endpoints.MapGet("/randomPrediction", async context =>
                 {
                     // * будут проблемы
-                    PredictionsManager pm = new PredictionsManager();
+                    var pm = app.ApplicationServices.GetService<PredictionsManager>();
                     var s = pm.GetRandomPrediction();
                     await context.Response.WriteAsync(s);
                 });
 
-                endpoints.MapGet("/addPrediction", async context =>
+                endpoints.MapPost("/addPrediction", async context =>
                 {
                     // * будут проблемы
-                    PredictionsManager pm = new PredictionsManager();
-                    string quary = context.Request.Query["newPrediction1"];
-                    string quary2 = context.Request.Query["newPrediction2"];
-                    string quary3 = context.Request.Query["newPrediction3"];
-                    pm.AddPrediction(quary);
+                    var pm = app.ApplicationServices.GetService<PredictionsManager>();
+                    var quary = await context.Request.ReadFromJsonAsync<Prediction>();
+                    pm.AddPrediction(quary.PredictionString);
                 });
             });
         }

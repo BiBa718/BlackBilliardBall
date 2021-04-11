@@ -1,0 +1,4 @@
+C:\repos\SimpleWebApp\SimpleWebApp.Repository\obj\Debug\netstandard2.0\SimpleWebApp.Repository.csprojAssemblyReference.cache
+C:\repos\SimpleWebApp\SimpleWebApp.Repository\obj\Debug\netstandard2.0\SimpleWebApp.Repository.AssemblyInfoInputs.cache
+C:\repos\SimpleWebApp\SimpleWebApp.Repository\obj\Debug\netstandard2.0\SimpleWebApp.Repository.AssemblyInfo.cs
+C:\repos\SimpleWebApp\SimpleWebApp.Repository\obj\Debug\netstandard2.0\SimpleWebApp.Repository.csproj.CoreCompileInputs.cache

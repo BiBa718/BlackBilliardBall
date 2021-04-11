@@ -3,13 +3,14 @@
 <head>
     <!-- Строка нужна для подключения русского языка -->
     <meta charset="utf-8" />
+    <!-- Bootstrap CSS эта строчка-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>:8ball:Страничка!</title>
+    <title>🎱</title>
 </head>
 <body style="background-color: black">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Admin</a>
+            <a class="navbar-brand" href="#">Predictions</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,36 +30,34 @@
         </div>
     </nav>
 
-    <div style="
-        margin-top: 10%;
-        color: whitesmoke;
-        text-align: center;
-        font-family: Calibri;
+    <div id="answerDiv" style="
+        margin-top: 34%;
+        margin-left: 7%;
+        margin-right: 7%;
+        color: springgreen;
+        font-family: Calibri ;
+        font-style: italic;
         font-size: 30px">
-
-        <div class="input-group" style="width: 70%; margin-left: 10%">
-            <span class="input-group-text">Добавить новый вариант предсказания:</span>
-            <input id="predictionInput" class="form-control" aria-label="Добавить новый вариант предсказания:">
-            <button class="btn btn-primary" onclick="onAddButtonClick()">Add 🍀</button>
-        </div>
+        Когда-нибудь здесь будет сарскастичный ответ, но пока вот тебе салат. 🥗
     </div>
 
     <script>
-        function onAddButtonClick() {
-            var prediction = document.getElementById("predictionInput").value
-            //fetch("/addPrediction?newPrediction=" + prediction)
-            const url = '/addPrediction';
+        window.onload = () => {
+            getPrediction()
+        }
 
-            const response = fetch(url, {
-                method: 'POST', // или 'PUT'
-                body: JSON.stringify({ PredictionString: prediction }), 
-                headers: {
-                    'Content-Type': 'application/json'
-                         }
-            });
+        function getPrediction()
+        {
+            //Ex1
+            var responsePromise = fetch("/randomPrediction")
+            responsePromise.then((response) => {
+                var textPromise = response.text()
+                textPromise.then((readText) => {
+                    document.getElementById("answerDiv").textContent = readText;
+                })
+            })
         }
     </script>
-    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
