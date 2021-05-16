@@ -1,29 +1,44 @@
 ﻿using System;
+using SimpleWebApp.Repository;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SimpleWebApp
 {
-    public class PredictionsManager
-    {
-        private Random rnd = new Random();
-        private List<string> predictions = new List<string>()
-        {
-            "Да",
-            "Нет",
-            "Не знаю"
-        };
+	public class PredictionsManager
+	{
+		private Random rnd = new Random();
+		IPredictionsRepository _repository = new PredictionsDatabaseRepository();
 
-        public string GetRandomPrediction()
-        {
-            int randomNumber = rnd.Next(0, predictions.Count);
-            return predictions[randomNumber];
-        }
+		public PredictionsManager(IPredictionsRepository repository)
+		{
+			_repository = repository;
+		}
 
-        public void AddPrediction(string prediction)
-        {
-            predictions.Add(prediction);
-        }
-    }
+		public List<Prediction> GetAllPredictions()
+		{
+			return _repository.GetAllPredictions().Select(dto => new Prediction(dto.PredictionText)).ToList();
+		}
+
+		public Prediction GetRandomPrediction()
+		{			
+			List<Prediction> prs = _repository.GetAllPredictions().Select(dto => new Prediction(dto.PredictionText)).ToList();
+			return prs[new Random().Next(prs.Count)];
+		}
+
+		public void AddPrediction(string prediction)
+		{
+			_repository.SavePrediction(prediction);
+		}
+
+		internal void DeletePrediction(int predictionNumber)
+		{
+			_repository.RemovePrediction(predictionNumber);
+		}
+
+		internal void UpdatePrediction(PredictionUpdateRequest request)
+		{
+			_repository.UpdatePrediction(new PredictionDto() { PredictionText = request.NewText, Id = request.PredictionNumber });
+		}
+	}
 }

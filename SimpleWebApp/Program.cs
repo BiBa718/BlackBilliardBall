@@ -9,26 +9,27 @@ using System.Threading.Tasks;
 
 namespace SimpleWebApp
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var hostBuilder = CreateHostBuilder(args);
-            var host = hostBuilder.Build();
-            host.Run();
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			var hostBuilder = CreateHostBuilder(args);
+			var host = hostBuilder.Build();
+			host.Run();
 
-            //CreateHostBuilder(args).Build().Run();
-        }
+			//CreateHostBuilder(args).Build().Run();
+		}
 
-        public static IHostBuilder CreateHostBuilder(string[] args)
-        {
-            var hostBuilder = Host.CreateDefaultBuilder(args);
-            var defaultBuilder = hostBuilder.ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            });
+		public static IHostBuilder CreateHostBuilder(string[] args)
+		{
+			var hostBuilder = Host.CreateDefaultBuilder(args);
 
-            return defaultBuilder;
-        }
-    }
+			var defaultBuilder = hostBuilder.ConfigureWebHostDefaults(webBuilder =>
+			{
+				webBuilder.UseStartup<Startup>();
+			});
+
+			return defaultBuilder;
+		}
+	}
 }

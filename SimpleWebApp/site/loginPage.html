@@ -6,10 +6,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>༼ つ ◕_◕ ༽つ</title>
 </head>
-<body>
+<body style="background-color: black">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Predictions</a>
+            <a class="navbar-brand" href="#">Admin</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,51 +19,53 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="adminPage">Admin</a>
+                        <a class="nav-link" href="adminPage">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="predictionsPage">Predictions</a>
+                        <a class="nav-link" href="predictionsPage">Predictions</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    login<input id="loginInput"></input>🎁
-    <br>
-    password<input id="passwordInput" type="password"></input>👀
-    <br>
-    <button onclick="onClick()">OK✔</button>
-    <a href="https://localhost:5001/adminpage">Go to admin page</a>
+    <div style="
+        color: springgreen;
+        font-family: 'Calibri';
+        font-style: italic;
+        font-size: 30px">
+        Введите логин и пароль
+        <br>
+        <input id="loginInput" type="input"></input>
+        <br>
+        <input id="passwordInput" type="password"></input>
+        <br>
+        <button onclick="onClick()">Submit</button>
+        <a href="/adminPage">Go to Admin Page</a>
+    </div>
 
     <script>
         // скрипт, который выполняется при загрузке страницы
-        window.onload = () => { alert("Complete") };
-
         window.onkeyup = (ev) => {
             if (ev.key == "Enter") {
                 onClick()
             }
-        };
+        }
 
         async function onClick() {
-            var passwordInput = document.getElementById("passwordInput")
+            // из текстовых полей берём значение логина и пароля которые ввёл пользователь
             var loginInput = document.getElementById("loginInput")
+            var passwordInput = document.getElementById("passwordInput")
 
-
-            var correctLoginResponce = await fetch("/login");
-            var correctLogin = await correctLoginResponce.text();
-            var correctPasswordResponse = await fetch("/password");
-            var correctPassword = await correctPasswordResponse.text();
-
-            if (passwordInput.value == correctPassword && loginInput.value == correctLogin) {
-                window.location = "/adminpage"
-            } else {
-                alert("Nope");
-            }
+            await fetch("/login", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ Login: loginInput.value, Password: passwordInput.value })
+            });
         }
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
