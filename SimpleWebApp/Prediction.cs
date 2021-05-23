@@ -5,6 +5,8 @@
         public string PredictionString { get; }
         public int PredictionId { get; }
 
+        public Prediction(){}
+
         public Prediction(string predictionString)
         {
             PredictionString = predictionString;

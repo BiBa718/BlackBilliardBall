@@ -6,3 +6,4 @@ C:\repos\SimpleWebApp\SimpleWebApp.Repository\bin\Debug\netstandard2.0\SimpleWeb
 C:\repos\SimpleWebApp\SimpleWebApp.Repository\bin\Debug\netstandard2.0\SimpleWebApp.Repository.pdb
 C:\repos\SimpleWebApp\SimpleWebApp.Repository\obj\Debug\netstandard2.0\SimpleWebApp.Repository.dll
 C:\repos\SimpleWebApp\SimpleWebApp.Repository\obj\Debug\netstandard2.0\SimpleWebApp.Repository.pdb
+C:\repos\SimpleWebApp\SimpleWebApp.Repository\obj\Debug\netstandard2.0\SimpleWebApp.Repository.csprojAssemblyReference.cache

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication;
+using SimpleWebApp.Repository;
 
 namespace SimpleWebApp
 {
@@ -17,6 +18,7 @@ namespace SimpleWebApp
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddSingleton<IPredictionsRepository>(new PredictionsDatabaseRepository());
 			services.AddSingleton<PredictionsManager>();
 			services
 				.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
